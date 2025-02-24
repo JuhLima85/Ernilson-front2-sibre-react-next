@@ -10,8 +10,12 @@ import styles from '../styles/encontros.module.css';
 import Domingo1 from '../public/Encontros1.jpg';
 import Domingo3 from '../public/Encontros3.jpg';
 import Domingo6 from '../public/Encontros6.jpg';
-import Domingo7 from '../public/Encontros7.jpg';
 import Domingo8 from '../public/Encontros8.jpg';
+import Domingo9 from '../public/Encontros9.png';
+import Domingo10 from '../public/Encontros10.png';
+import Domingo11 from '../public/Encontros11.png';
+import Domingo12 from '../public/Encontros12.png';
+import Domingo13 from '../public/Encontros13.png';
 import JiuJitsu from '../public/jiu-jitsu.jpg';
 import JiuJitsu2 from '../public/jiu-jitsu2.jpg';
 import JiuJitsu5 from '../public/jiu-jitsu5.jpg';
@@ -110,7 +114,7 @@ function Encontros() {
                                     Sua presença é muito importante para nós!
                                 </>
                             }
-                            images={[Domingo6, Domingo7, Domingo8, Domingo1, Domingo3]}
+                            images={[Domingo6, Domingo8, Domingo1, Domingo3, Domingo9, Domingo10, Domingo11, Domingo12, Domingo13]}
                             ref={domingoDoSenhorRef}
                             isSmallScreen={isSmallScreen} 
                         />
@@ -126,11 +130,26 @@ function Encontros() {
                         <Section
                             id="projeto-jiu-jitsu"
                             title="Projeto Jiu-Jitsu"
-                            text={
-                                <>
-                                    Nossa igreja oferece aulas gratuitas de jiu-jítsu para a comunidade, promovendo saúde, disciplina e inclusão. Durante as aulas, os alunos também têm a oportunidade de ouvir a Palavra de Deus, fortalecendo a fé e valores como respeito e trabalho em equipe. Participe!<br />
-                                    <p style={{ fontWeight: 'bold' }}>As aulas acontecem às quintas-feiras, 19h, e aos sábados, 10h. </p>
-                                </>}
+                            text={  
+                                <>  
+                                    Nossa igreja oferece aulas gratuitas de jiu-jítsu para a comunidade, promovendo saúde, disciplina e inclusão. Durante as aulas, os alunos também têm a oportunidade de ouvir a Palavra de Deus, fortalecendo a fé e valores como respeito e trabalho em equipe. Participe!<br />  
+                                    <p style={{ fontWeight: 'bold' }}>As aulas acontecem às segundas e quintas-feiras: 19h para crianças e 20h para adultos, e aos sábados, às 10h.</p>  
+                                </>  
+                            }
+                            images={[JiuJitsu, JiuJitsu2, JiuJitsu5, JiuJitsu6]}
+                            ref={projetoJiuJitsuRef}
+                            isSmallScreen={isSmallScreen}
+                        />
+
+                        <Section
+                            id="projeto-jiu-jitsu"
+                            title="Projeto Jiu-Jitsu"
+                            text={  
+                                <>  
+                                    Nossa igreja oferece aulas gratuitas de jiu-jítsu para a comunidade, promovendo saúde, disciplina e inclusão. Durante as aulas, os alunos também têm a oportunidade de ouvir a Palavra de Deus, fortalecendo a fé e valores como respeito e trabalho em equipe. Participe!<br />  
+                                    <p style={{ fontWeight: 'bold' }}>As aulas acontecem às segundas e quintas-feiras: 19h para crianças e 20h para adultos, e aos sábados, às 10h.</p>  
+                                </>  
+                            }
                             images={[JiuJitsu, JiuJitsu2, JiuJitsu5, JiuJitsu6]}
                             ref={projetoJiuJitsuRef}
                             isSmallScreen={isSmallScreen}
