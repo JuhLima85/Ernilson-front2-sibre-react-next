@@ -103,7 +103,7 @@ function Home({ data }) {
                         <div className="col-lg-4">
                             <Link href="/comunhao#domingo-do-senhor">
                                 <div>
-                                    <div className="circulo" style={{ backgroundImage: 'url(/templo_interno.jpg)' }} />
+                                    <div className="circulo" style={{ backgroundImage: 'url(/bibliaEcruz.jpg)' }} />
                                     <h3 className="mt-4 mb-4" style={{ color: '#102658', fontWeight: 'bold', fontSize: '1.6rem' }}>
                                         Domingo do Senhor
                                     </h3>
