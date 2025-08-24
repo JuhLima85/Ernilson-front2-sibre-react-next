@@ -7,15 +7,15 @@ import RodaPe from '../componete/RodaPe';
 import { Container } from 'reactstrap';
 import Image from 'next/image';
 import styles from '../styles/encontros.module.css';
+import bibliaEcruz from '../public/bibliaEcruz.jpg';
+import culto from '../public/culto.jpg';
 import Domingo1 from '../public/Encontros1.jpg';
 import Domingo3 from '../public/Encontros3.jpg';
 import Domingo6 from '../public/Encontros6.jpg';
 import Domingo8 from '../public/Encontros8.jpg';
-import Domingo9 from '../public/Encontros9.png';
 import Domingo10 from '../public/Encontros10.png';
 import Domingo11 from '../public/Encontros11.png';
 import Domingo12 from '../public/Encontros12.png';
-import Domingo13 from '../public/Encontros13.png';
 import JiuJitsu from '../public/jiu-jitsu.jpg';
 import JiuJitsu2 from '../public/jiu-jitsu2.jpg';
 import JiuJitsu5 from '../public/jiu-jitsu5.jpg';
@@ -114,7 +114,7 @@ function Encontros() {
                                     Sua presença é muito importante para nós!
                                 </>
                             }
-                            images={[Domingo6, Domingo8, Domingo1, Domingo3, Domingo9, Domingo10, Domingo11, Domingo12, Domingo13]}
+                            images={[Domingo11, Domingo12, bibliaEcruz, Domingo6, Domingo8, culto, Domingo1, Domingo3, Domingo10]}
                             ref={domingoDoSenhorRef}
                             isSmallScreen={isSmallScreen} 
                         />

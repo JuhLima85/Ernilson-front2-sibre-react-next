@@ -14,10 +14,7 @@ const Menu = () => {
                 <NavbarBrand href="/"><b>SIBRE</b></NavbarBrand>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
-                        <Nav className="mr-auto" navbar>
-                            <NavItem>
-                                <NavLink href="/home">Home</NavLink>
-                            </NavItem>
+                        <Nav className="mr-auto" navbar>                           
                             <NavItem>
                                 <NavLink href="/comunhao">Atividades</NavLink>
                             </NavItem>
@@ -31,7 +28,7 @@ const Menu = () => {
                                 <NavLink href="/sobre">Sobre</NavLink>
                             </NavItem>
                         </Nav>
-                        <NavbarBrand href="https://sibre2023.com.br/">
+                        <NavbarBrand href="http://pure-grace-production.up.railway.app/">
                             <span title="Área restrita, necessário uso de senha">
                                 <FaSignInAlt />
                             </span>
