@@ -28,7 +28,7 @@ const Menu = () => {
                                 <NavLink href="/sobre">Sobre</NavLink>
                             </NavItem>
                         </Nav>
-                        <NavbarBrand href="http://pure-grace-production.up.railway.app/">
+                        <NavbarBrand href="https://sibre-adm.netlify.app/">
                             <span title="Área restrita, necessário uso de senha">
                                 <FaSignInAlt />
                             </span>
