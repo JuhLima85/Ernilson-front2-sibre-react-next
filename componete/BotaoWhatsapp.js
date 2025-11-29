@@ -28,7 +28,7 @@ const BotaoWhatsapp = () => {
           onMouseLeave={() => setShowTooltip(false)} 
       >
           <a
-              href="https://api.whatsapp.com/send?phone=5561999178363"
+              href="https://wa.me/556199178363?text=Olá%20pastor%20Gustavo%2C%20fui%20redirecionado%20pelo%20site%20da%20igreja."
               target="_blank"
               rel="noopener noreferrer"
           >

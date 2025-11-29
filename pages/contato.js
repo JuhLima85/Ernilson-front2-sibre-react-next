@@ -1,110 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Menu from '../componete/Menu.js';
-import { Jumbotron, Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
-import BotaoWhatsapp from '../componete/BotaoWhatsapp.js';
+import { Jumbotron, Container } from 'reactstrap';
+import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contato = () => {
-    const [contato, setContato] = useState({
-        nome: '',
-        celular: '',
-        email: '',
-        assuntoMsg: '',
-        conteudoMsg: ''
-    });
-
-    const [response, setResponse] = useState({
-        formSave: false,
-        type: '',
-        message: '',
-        formSuccess: false
-    });
-
-    const onchangeInput = e => setContato({ ...contato, [e.target.name]: e.target.value });
-
-    const limparCampos = () => {
-        setContato({
-            nome: '',
-            celular: '',
-            email: '',
-            assuntoMsg: '',
-            conteudoMsg: ''
-        });
-    };
-
-    const envconteudo_msg = async e => {
-        e.preventDefault();
-        console.log(contato);
-        if (!validate()) return;
-        setResponse({ formSave: true });
-
-        console.log("Iniciando envio da mensagem...");
-
-        try {
-            const res = await fetch(`https://sibre2023.com.br/contato/gravar`, {
-                method: `POST`,
-                body: JSON.stringify(contato),
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            const contentType = res.headers.get("content-type");
-            let responseEnv;
-
-            if (contentType && contentType.includes("application/json")) {
-                responseEnv = await res.json();
-            } else {
-                responseEnv = await res.text();
-            }
-
-            console.log(responseEnv);
-
-            if (typeof responseEnv === 'object' && responseEnv.error) {
-                setResponse({
-                    formSave: false,
-                    type: 'error',
-                    message: responseEnv.message
-                });
-            } else {
-                setResponse({
-                    formSave: false,
-                    type: 'success',
-                    message: 'Mensagem enviada com sucesso!',
-                    formSuccess: true
-                });
-                limparCampos(); 
-            }
-
-        } catch (err) {
-            console.error("Erro no envio da mensagem:", err);
-            setResponse({
-                formSave: false,
-                type: 'error',
-                message: 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.'
-            });
-        }
-    };
-
-    const validate = () => {
-        if (!contato.nome) {
-            setResponse({ type: 'error', message: 'Preencha o campo nome!' });
-            return false;
-        }
-        if (!contato.email) {
-            setResponse({ type: 'error', message: 'Preencha o campo e-mail!' });
-            return false;
-        }
-        if (!contato.assuntoMsg) {
-            setResponse({ type: 'error', message: 'Preencha o campo assunto da mensagem!' });
-            return false;
-        }
-        if (!contato.conteudoMsg) {
-            setResponse({ type: 'error', message: 'Preencha o campo conteúdo da mensagem!' });
-            return false;
-        }
-
-        return true;
-    };
-
     return (
         <div>
             <Head>
@@ -117,73 +17,171 @@ const Contato = () => {
             <Jumbotron fluid className="head-contato">
                 <style>{`.head-contato{
                     padding-top: 60px;
-                    padding-buttom:5px;
+                    padding-bottom: 40px;
                     background-color: #fff;
                     margin-bottom: 0 !important;
                 }`}</style>
                 <Container>
-                    <h1 className="display-8 text-center">Contato</h1>
+                    <h1 className="display-4 text-center" style={{ color: '#102658', fontWeight: 'bold',  fontSize: '2.5rem' }}>Entre em Contato</h1>
                 </Container>
             </Jumbotron>
 
-            <Jumbotron fluid className="form-contato">
-                <style>{`.head-contato{
+            <Jumbotron fluid className="contato-content">
+                <style>{`.contato-content {
                     padding-top: 60px;
-                    padding-buttom:5px;
-                    background-color: #fff;
+                    padding-bottom: 60px;
+                    background-color: #f8f9fa;
                     margin-bottom: 0 !important;
-                }`}</style>
+                }
+                
+                .contact-card {
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    text-align: center;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .contact-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                }
+                
+                .contact-card i {
+                    font-size: 3rem;
+                    margin-bottom: 20px;
+                    color: #17A2B8;
+                }
+                
+                .contact-card h3 {
+                    color: #102658;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+                
+                .contact-card p {
+                    color: #666;
+                    margin-bottom: 15px;
+                }
+                
+                .contact-link {
+                    display: inline-block;
+                    padding: 12px 24px;
+                    background-color: #17A2B8;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    transition: background-color 0.3s ease;
+                }
+                
+                .contact-link:hover {
+                    background-color: #138496;
+                    color: white;
+                    text-decoration: none;
+                }
+                
+                .info-section {
+                    background: white;
+                    border-radius: 10px;
+                    padding: 30px;
+                    margin-top: 30px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+                
+                .info-section h3 {
+                    color: #102658;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+                
+                .info-item {
+                    margin-bottom: 15px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .info-item:last-child {
+                    border-bottom: none;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                }
+                
+                .info-item strong {
+                    color: #102658;
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                
+                .info-item p {
+                    color: #666;
+                    margin: 0;
+                }
+                
+                @media (max-width: 768px) {
+                    .contact-card i {
+                        font-size: 2.5rem;
+                    }
+                }
+                `}</style>
                 <Container>
-                    <div className="row featurette">
-                        <div className="col-md-6">
-                            {response.type === 'success' && <div className='alert alert-success'>{response.message}</div>}
-                            {response.type === 'error' && <div className='alert alert-danger'>{response.message}</div>}
-                            <Form onSubmit={envconteudo_msg}>
-                                <FormGroup>
-                                    <Label for="nome"><span className="text-danger">*</span> Nome:</Label>
-                                    <Input type="text" name="nome" id="nome" placeholder="Digite Seu Nome..."
-                                        value={contato.nome} onChange={onchangeInput} />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label for="celular"><span className="text-danger"></span> Celular:</Label>
-                                    <Input type="tel" name="celular" id="celular" placeholder="(DDD) 99999-9999"
-                                           value={contato.celular} onChange={onchangeInput} />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label for="email">Email:</Label>
-                                    <Input type="email" name="email" id="email" placeholder="Digite Seu Email..."
-                                        value={contato.email} onChange={onchangeInput} />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label for="assuntoMsg">Assunto da Mensagem:</Label>
-                                    <Input type="text" name="assuntoMsg" id="assuntoMsg" placeholder="Digite o assunto..."
-                                        value={contato.assuntoMsg} onChange={onchangeInput} />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label for="conteudoMsg"><span className="text-danger">*</span> Mensagem:</Label>
-                                    <Input type="textarea" name="conteudoMsg" id="conteudoMsg" placeholder="Digite sua mensagem..."
-                                        value={contato.conteudoMsg} onChange={onchangeInput} />
-                                </FormGroup>
-                                {response.formSave ? <Button type="submit" outline color="warning" disabled>Enviando...</Button> : <Button type="submit" outline color="warning">Enviar</Button>}
-                            </Form>
+                    <div className="row">
+                        <div className="col-md-4 mb-4">
+                            <div className="contact-card">
+                                <FaWhatsapp />
+                                <h3>WhatsApp</h3>
+                                <p>Fale conosco diretamente pelo WhatsApp</p>
+                                <a href="https://wa.me/556199178363?text=Olá%20pastor%20Gustavo%2C%20fui%20redirecionado%20pelo%20site%20da%20igreja." target="_blank" rel="noopener noreferrer" className="contact-link">
+                                    <FaWhatsapp style={{ marginRight: '8px' }} />
+                                    Enviar Mensagem
+                                </a>
+                            </div>
                         </div>
-                        <div className="col-md-6">
-                            <br />
-                            <h3 className="featurette-heading">Contribua com o Reino </h3>
-                            <p className="lead">Banco: 323 Mercado Pago - Agência: 0001 Conta: 88333095615,
-                                pix CNPJ: 186855200001/40 - Pix Email: sibre25@gmail.com</p>
-                            <hr />
-                            <address>
-                                <strong>Endereço</strong><br />
-                                Quadra 105 Area Especial 01 <br />
-                                Av. Vargem das Benção Recanto das Emas- DF<br />
-                                CEP: 72601120 - Tel (61) 991323236 - (61) 33337274<br />
-                            </address>
+
+                        <div className="col-md-4 mb-4">
+                            <div className="contact-card">
+                                <FaInstagram />
+                                <h3>Instagram</h3>
+                                <p>Acompanhe nossas novidades e eventos</p>
+                                <a href="https://www.instagram.com/sibre.oficial/" target="_blank" rel="noopener noreferrer" className="contact-link">
+                                    <FaInstagram style={{ marginRight: '8px' }} />
+                                    Seguir
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="col-md-4 mb-4">
+                            <div className="contact-card">
+                                <FaMapMarkerAlt />
+                                <h3>Localização</h3>
+                                <p>Veja como chegar em nossa igleja</p>
+                                <a href="https://goo.gl/maps/nB3GEHK9yLHAeEYx8" target="_blank" rel="noopener noreferrer" className="contact-link">
+                                    <FaMapMarkerAlt style={{ marginRight: '8px' }} />
+                                    Como Chegar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="info-section">
+                        <h3>Informações Gerais</h3>
+                        <div className="info-item">
+                            <strong>Endereço</strong>
+                            <p>Quadra 105 Area Especial 01<br />Av. Vargem das Benção<br />Recanto das Emas - DF<br />CEP: 72601120</p>
+                        </div>
+                        <div className="info-item">
+                            <strong>Telefone</strong>
+                            <p>(61) 9917-8363</p>
+                        </div>
+                        <div className="info-item">
+                            <strong>Contribuição - Contribua com o Reino</strong>
+                            <p><strong>PIX:</strong> sibre25@gmail.com<br /><strong>PIX CNPJ:</strong> 186855200001/40<br /><strong>Banco:</strong> 323 Mercado Pago - Agência: 0001 - Conta: 88333095615</p>
                         </div>
                     </div>
                 </Container>
-            </Jumbotron>
-            <BotaoWhatsapp />
+            </Jumbotron>            
         </div>
     );
 };
