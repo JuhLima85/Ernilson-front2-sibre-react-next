@@ -419,7 +419,7 @@ function sobre() {
                             <div className="col-lg-7 mb-4 mb-lg-0">
                                 <h2>Nossa Missão</h2>
                                 <p>
-                                    <strong>Amar a Deus</strong> com todo nosso coração e <strong>servir ao próximo</strong> 
+                                    <strong>Amar a Deus</strong> com todo nosso coração e <strong>servir ao próximo </strong> 
                                     com amor e dedicação.
                                 </p>
                                 <p>

@@ -28,7 +28,6 @@ Abra package.json e adicione o seguinte scripts:
 ## Pagina Home
 ![Home](https://github.com/Ernilson/Ernilson-front2-sibre-react-next/assets/30840118/a04198bc-d1ac-4848-a8d4-2f1446bc23ce)
 
- ##   Link do youtube da sibre
- "https://www.youtube.com/channel/UCWTywd1HwBLG3mpSI5hAmvg"
+
                                       
                                     
